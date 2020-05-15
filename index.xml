@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ciao Ling&#39;s Github Page</title>
+    <link>https://IreneLou.github.io/</link>
+    <description>Recent content on Ciao Ling&#39;s Github Page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <lastBuildDate>Fri, 15 May 2020 20:38:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://IreneLou.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test2</title>
+      <link>https://IreneLou.github.io/post/test2/</link>
+      <pubDate>Fri, 15 May 2020 20:38:07 +0800</pubDate>
+      
+      <guid>https://IreneLou.github.io/post/test2/</guid>
+      <description>Install ubuntu 18.04 網路設定 😸 </description>
+    </item>
+    
+  </channel>
+</rss>
