@@ -6,18 +6,47 @@
     <description>Recent content on Ciao Ling&#39;s Github Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Fri, 15 May 2020 20:38:07 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 00:18:35 +0800</lastBuildDate>
     
 	<atom:link href="https://IreneLou.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test2</title>
-      <link>https://IreneLou.github.io/post/test2/</link>
-      <pubDate>Fri, 15 May 2020 20:38:07 +0800</pubDate>
+      <title>Install ubuntu 18.04 網路設定</title>
+      <link>https://IreneLou.github.io/post/install_ubuntu18_04/</link>
+      <pubDate>Sun, 10 May 2020 20:38:07 +0800</pubDate>
       
-      <guid>https://IreneLou.github.io/post/test2/</guid>
-      <description>Install ubuntu 18.04 網路設定 😸 </description>
+      <guid>https://IreneLou.github.io/post/install_ubuntu18_04/</guid>
+      <description>Ctrl+Alt+F2 切換畫面進入cmd狀態，可下指令確認網路狀態 (Ctrl+Alt+F1 視覺化界面、Ctrl+Alt+F2~F7 文字介面tt2~tt7 terminal)
+Note 1. 確認網孔接線、與IP設定的網卡有無匹配(注意!!注意!!注意!!) 如果配對成功會有Running，設定不吻合安裝介面會error  ifconfig  Note 2. 確認網路線從對的IP pool牽出來  ping Gateway ping NameServer (8.8.8.8) ping www.google.com 
+Note 3. 確認安裝完的網路設定以及可修改的位置  vim /etc/netplan/XX-cloud-init.yaml or /etc/network/interfaces + /etc/resolv.conf  EXTRA dhclient &amp;mdash; 可以重新取得IP，但是其他網卡的網路不會中斷
+dhclient是主動向DHCP Server要求IP的指令，若只想針對eth0這張網卡要求新的IP時可以輸入:  &amp;gt; dhclient eth0 
+如果沒有指定網卡，會讓系統內全部的網卡重新抓取IP喔!
+快來參考</description>
+    </item>
+    
+    <item>
+      <title>Python import method</title>
+      <link>https://IreneLou.github.io/post/python_import/</link>
+      <pubDate>Sun, 10 May 2020 20:38:07 +0800</pubDate>
+      
+      <guid>https://IreneLou.github.io/post/python_import/</guid>
+      <description>Python import method 如果要import的library屬於sibling，而parent沒有__**init__.py**不是package的話，怎麼辦???
+比如b.py想要引用a.py的function，沒辦法直接用relative import的方式，會產生 “Attempted relative import beyond toplevel package” error
+需要自行添加sibling的path 到sys.path，或者在最頂層執行程式
+. └── moon ├── dir1 │ ├── init.py │ └── moudle1 │ ├── a.py │ └── init.py └── dir2 ├── init.py └── moudle2 ├── b.py └── init.py
+import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找到的絕對路徑添加到sys.path中os.path.abspath(&#39;../dir2&#39;)找到當下的絕對路徑來看sys.path有哪些進入python環境import syssys.path</description>
+    </item>
+    
+    <item>
+      <title>Use Socket to echo GWC</title>
+      <link>https://IreneLou.github.io/post/socket/</link>
+      <pubDate>Sun, 10 May 2020 20:38:07 +0800</pubDate>
+      
+      <guid>https://IreneLou.github.io/post/socket/</guid>
+      <description>wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&amp;quot;echo&amp;quot;會導致搜尋範圍太大沒有反應
+  到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
+ request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp;amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &amp;lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket.</description>
     </item>
     
   </channel>

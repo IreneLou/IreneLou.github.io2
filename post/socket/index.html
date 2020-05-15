@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Use Socket to echo GWC - Ciao Ling&#39;s Github Page</title>
+<meta name="generator" content="Hugo 0.70.0" />
+<link href="https://IreneLou.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://IreneLou.github.io/post/socket/">
+<link rel="stylesheet" href="https://IreneLou.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://IreneLou.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://IreneLou.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="Use Socket to echo GWC" />
+<meta property="og:description" content="wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應
+  到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
+ request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IreneLou.github.io/post/socket/" />
+<meta property="article:published_time" content="2020-05-10T20:38:07+08:00" />
+<meta property="article:modified_time" content="2020-05-10T20:38:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Use Socket to echo GWC"/>
+<meta name="twitter:description" content="wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應
+  到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
+ request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket."/>
+<meta itemprop="name" content="Use Socket to echo GWC">
+<meta itemprop="description" content="wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應
+  到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
+ request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket.">
+<meta itemprop="datePublished" content="2020-05-10T20:38:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-10T20:38:07&#43;08:00" />
+<meta itemprop="wordCount" content="100">
+
+
+
+<meta itemprop="keywords" content="socket," /></head>
+<body><div class="container"><header>
+<h1>Ciao Ling&#39;s Github Page</h1>
+
+</header>
+
+<div class="content-container">
+<main><h1>Use Socket to echo GWC</h1>
+<h3 id="wireshark-剪封包訊息">wireshark 剪封包訊息</h3>
+<ol>
+<li>
+<p>GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應</p>
+</li>
+<li>
+<p>到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得</p>
+<ol>
+<li>request msg : 40010009000002000300010046</li>
+<li>response msg: 400200090000020003000100b8</li>
+</ol>
+</li>
+</ol>
+<p><img src="/gwc_get_eho.png" alt="Image: b"></p>
+<h3 id="use-socket-to-send-echo-request">use Socket to send ECHO Request</h3>
+<pre><code>    import socket
+
+    req_message = '40010009000002000300010046'
+
+    #初始設定
+    gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    # 如果是UDP一來一回request &amp; response不需要加bind
+    gtpc_sock.bind(('0.0.0.0', Port)) # &lt;- tuple style  
+
+    # socket msg type為byte
+    gtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))
+
+    # receive from 目標IP只會收一遍，1024為buffer size
+    try:
+        gwc_rsp, address = gtpc_sock.recvfrom(1024)
+    # 要判斷有沒有time out，有沒有回傳訊息
+    except socket.timeout:
+        print ('Time out!')
+        return None
+
+    print ('message: ', req_message)
+    print ('msg_byte: ', bytes.fromhex(req_message))
+    print ('receive msg: ', gwc_rsp)
+    print ('receive addr: ', address)
+    print ('receive msg_hex: ', ''.join(['%02x' % b for b in gwc_rsp]))
+
+    # 最後要close socket
+    gtpc_sock.close()
+</code></pre><p><img src="/static/images/terminal_output.png" alt="Image: a"></p>
+<div class="edit-meta">
+Last updated on 10 May 2020
+
+
+<br>
+Published on 10 May 2020
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://IreneLou.github.io/post/python_import/" title="Python import method"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Python import method</a>
+<a class="nav nav-next" href="https://IreneLou.github.io/post/install_ubuntu18_04/" title="Install ubuntu 18.04 網路設定">Next - Install ubuntu 18.04 網路設定 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

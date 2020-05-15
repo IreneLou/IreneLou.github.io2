@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>socket on Ciao Ling&#39;s Github Page</title>
+    <link>https://IreneLou.github.io/tags/socket/</link>
+    <description>Recent content in socket on Ciao Ling&#39;s Github Page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <lastBuildDate>Sun, 10 May 2020 20:38:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://IreneLou.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Use Socket to echo GWC</title>
+      <link>https://IreneLou.github.io/post/socket/</link>
+      <pubDate>Sun, 10 May 2020 20:38:07 +0800</pubDate>
+      
+      <guid>https://IreneLou.github.io/post/socket/</guid>
+      <description>wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&amp;quot;echo&amp;quot;會導致搜尋範圍太大沒有反應
+  到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
+ request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp;amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &amp;lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Ciao Ling&#39;s Github Page</title>
+    <link>https://IreneLou.github.io/tags/python/</link>
+    <description>Recent content in python on Ciao Ling&#39;s Github Page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <lastBuildDate>Sun, 10 May 2020 20:38:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://IreneLou.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python import method</title>
+      <link>https://IreneLou.github.io/post/python_import/</link>
+      <pubDate>Sun, 10 May 2020 20:38:07 +0800</pubDate>
+      
+      <guid>https://IreneLou.github.io/post/python_import/</guid>
+      <description>Python import method 如果要import的library屬於sibling，而parent沒有__**init__.py**不是package的話，怎麼辦???
+比如b.py想要引用a.py的function，沒辦法直接用relative import的方式，會產生 “Attempted relative import beyond toplevel package” error
+需要自行添加sibling的path 到sys.path，或者在最頂層執行程式
+. └── moon ├── dir1 │ ├── init.py │ └── moudle1 │ ├── a.py │ └── init.py └── dir2 ├── init.py └── moudle2 ├── b.py └── init.py
+import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找到的絕對路徑添加到sys.path中os.path.abspath(&#39;../dir2&#39;)找到當下的絕對路徑來看sys.path有哪些進入python環境import syssys.path</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Install ubuntu 18.04 網路設定 - Ciao Ling&#39;s Github Page</title>
+<meta name="generator" content="Hugo 0.70.0" />
+<link href="https://IreneLou.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://IreneLou.github.io/post/install_ubuntu18_04/">
+<link rel="stylesheet" href="https://IreneLou.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://IreneLou.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://IreneLou.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="Install ubuntu 18.04 網路設定" />
+<meta property="og:description" content="Ctrl&#43;Alt&#43;F2 切換畫面進入cmd狀態，可下指令確認網路狀態 (Ctrl&#43;Alt&#43;F1 視覺化界面、Ctrl&#43;Alt&#43;F2~F7 文字介面tt2~tt7 terminal)
+Note 1. 確認網孔接線、與IP設定的網卡有無匹配(注意!!注意!!注意!!) 如果配對成功會有Running，設定不吻合安裝介面會error  ifconfig  Note 2. 確認網路線從對的IP pool牽出來  ping Gateway ping NameServer (8.8.8.8) ping www.google.com 
+Note 3. 確認安裝完的網路設定以及可修改的位置  vim /etc/netplan/XX-cloud-init.yaml or /etc/network/interfaces &#43; /etc/resolv.conf  EXTRA dhclient &mdash; 可以重新取得IP，但是其他網卡的網路不會中斷
+dhclient是主動向DHCP Server要求IP的指令，若只想針對eth0這張網卡要求新的IP時可以輸入:  &gt; dhclient eth0 
+如果沒有指定網卡，會讓系統內全部的網卡重新抓取IP喔!
+快來參考" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IreneLou.github.io/post/install_ubuntu18_04/" />
+<meta property="article:published_time" content="2020-05-10T20:38:07+08:00" />
+<meta property="article:modified_time" content="2020-05-10T20:38:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install ubuntu 18.04 網路設定"/>
+<meta name="twitter:description" content="Ctrl&#43;Alt&#43;F2 切換畫面進入cmd狀態，可下指令確認網路狀態 (Ctrl&#43;Alt&#43;F1 視覺化界面、Ctrl&#43;Alt&#43;F2~F7 文字介面tt2~tt7 terminal)
+Note 1. 確認網孔接線、與IP設定的網卡有無匹配(注意!!注意!!注意!!) 如果配對成功會有Running，設定不吻合安裝介面會error  ifconfig  Note 2. 確認網路線從對的IP pool牽出來  ping Gateway ping NameServer (8.8.8.8) ping www.google.com 
+Note 3. 確認安裝完的網路設定以及可修改的位置  vim /etc/netplan/XX-cloud-init.yaml or /etc/network/interfaces &#43; /etc/resolv.conf  EXTRA dhclient &mdash; 可以重新取得IP，但是其他網卡的網路不會中斷
+dhclient是主動向DHCP Server要求IP的指令，若只想針對eth0這張網卡要求新的IP時可以輸入:  &gt; dhclient eth0 
+如果沒有指定網卡，會讓系統內全部的網卡重新抓取IP喔!
+快來參考"/>
+<meta itemprop="name" content="Install ubuntu 18.04 網路設定">
+<meta itemprop="description" content="Ctrl&#43;Alt&#43;F2 切換畫面進入cmd狀態，可下指令確認網路狀態 (Ctrl&#43;Alt&#43;F1 視覺化界面、Ctrl&#43;Alt&#43;F2~F7 文字介面tt2~tt7 terminal)
+Note 1. 確認網孔接線、與IP設定的網卡有無匹配(注意!!注意!!注意!!) 如果配對成功會有Running，設定不吻合安裝介面會error  ifconfig  Note 2. 確認網路線從對的IP pool牽出來  ping Gateway ping NameServer (8.8.8.8) ping www.google.com 
+Note 3. 確認安裝完的網路設定以及可修改的位置  vim /etc/netplan/XX-cloud-init.yaml or /etc/network/interfaces &#43; /etc/resolv.conf  EXTRA dhclient &mdash; 可以重新取得IP，但是其他網卡的網路不會中斷
+dhclient是主動向DHCP Server要求IP的指令，若只想針對eth0這張網卡要求新的IP時可以輸入:  &gt; dhclient eth0 
+如果沒有指定網卡，會讓系統內全部的網卡重新抓取IP喔!
+快來參考">
+<meta itemprop="datePublished" content="2020-05-10T20:38:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-10T20:38:07&#43;08:00" />
+<meta itemprop="wordCount" content="42">
+
+
+
+<meta itemprop="keywords" content="try,test," /></head>
+<body><div class="container"><header>
+<h1>Ciao Ling&#39;s Github Page</h1>
+
+</header>
+
+<div class="content-container">
+<main><h1>Install ubuntu 18.04 網路設定</h1>
+<p>Ctrl+Alt+F2 切換畫面進入cmd狀態，可下指令確認網路狀態
+(Ctrl+Alt+F1 視覺化界面、Ctrl+Alt+F2~F7  文字介面tt2~tt7 terminal)</p>
+<p>Note 1.
+<strong>確認網孔接線、與IP設定的網卡有無匹配(注意!!注意!!注意!!)</strong>
+如果配對成功會有Running，設定不吻合安裝介面會error
+<code> ifconfig </code>
+Note 2.
+確認網路線從對的IP pool牽出來
+<code> ping Gateway   ping NameServer (8.8.8.8)   ping www.google.com </code></p>
+<p>Note 3.
+確認安裝完的網路設定以及可修改的位置
+<code> vim /etc/netplan/XX-cloud-init.yaml or /etc/network/interfaces + /etc/resolv.conf </code>
+<img src="/static/images/ubuntu1.png" alt="Image: ">
+<img src="/static/images/ubuntu2.png" alt="Image: "></p>
+<h2 id="extra">EXTRA</h2>
+<p><strong>dhclient &mdash; 可以重新取得IP，但是其他網卡的網路不會中斷</strong></p>
+<p>dhclient是主動向DHCP Server要求IP的指令，若只想針對eth0這張網卡要求新的IP時可以輸入:
+<code> &gt; dhclient eth0 </code></p>
+<p>如果沒有指定網卡，會讓系統內全部的網卡重新抓取IP喔!</p>
+<p><a href="https://david50.pixnet.net/blog/post/27179542">快來參考</a></p>
+<div class="edit-meta">
+Last updated on 10 May 2020
+
+
+<br>
+Published on 10 May 2020
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://IreneLou.github.io/post/" title="Posts"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Posts</a>
+<a class="nav nav-next" href="https://IreneLou.github.io/post/python_import/" title="Python import method">Next - Python import method <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
