@@ -5,23 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Python import method - My New Hugo Site</title><meta name="Description" content=""><meta property="og:title" content="Python import method" />
+        <title>Python import method - Ciao Ling&#39;s 部落格</title><meta name="Description" content=""><meta property="og:title" content="Python import method" />
 <meta property="og:description" content="如果要import的library屬於sibling，而parent沒有__**init__.py**不是package的話，怎麼辦???
 比如b.py想要引用a.py的function，沒辦法直接用relative import的方式，會產生 “Attempted relative import beyond toplevel package” error
 需要自行添加sibling的path 到sys.path，或者在最頂層執行程式
+.
+└─ moon
+├── dir1
+│ ├── init.py
+│ └── moudle1
+│ ├── a.py
+│ └── init.py
+└── dir2
+├── init.py
+└── moudle2
+├── b.py
+└── init.py
 import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找到的絕對路徑添加到sys.path中os.path.abspath(&#39;../dir2&#39;)找到當下的絕對路徑來看sys.path有哪些進入python環境import syssys.path" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/python_import/" />
-<meta property="article:published_time" content="2020-05-10T20:38:07+08:00" />
-<meta property="article:modified_time" content="2020-05-10T20:38:07+08:00" />
+<meta property="article:published_time" content="2020-05-01T20:38:07+08:00" />
+<meta property="article:modified_time" content="2020-05-01T20:38:07+08:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python import method"/>
 <meta name="twitter:description" content="如果要import的library屬於sibling，而parent沒有__**init__.py**不是package的話，怎麼辦???
 比如b.py想要引用a.py的function，沒辦法直接用relative import的方式，會產生 “Attempted relative import beyond toplevel package” error
 需要自行添加sibling的path 到sys.path，或者在最頂層執行程式
+.
+└─ moon
+├── dir1
+│ ├── init.py
+│ └── moudle1
+│ ├── a.py
+│ └── init.py
+└── dir2
+├── init.py
+└── moudle2
+├── b.py
+└── init.py
 import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找到的絕對路徑添加到sys.path中os.path.abspath(&#39;../dir2&#39;)找到當下的絕對路徑來看sys.path有哪些進入python環境import syssys.path"/>
-<meta name="application-name" content="My New Hugo Site">
-<meta name="apple-mobile-web-app-title" content="My New Hugo Site"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Ciao Ling&#39;s 部落格">
+<meta name="apple-mobile-web-app-title" content="Ciao Ling&#39;s 部落格"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/python_import/" /><link rel="prev" href="http://example.org/posts/socket/" /><link rel="next" href="http://example.org/posts/install_ubuntu18_04/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -32,8 +56,8 @@ import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/posts\/python_import\/"
-        },"genre": "posts","keywords": "python","wordcount":  25 ,
-        "url": "http:\/\/example.org\/posts\/python_import\/","datePublished": "2020-05-10T20:38:07+08:00","dateModified": "2020-05-10T20:38:07+08:00","author": {
+        },"genre": "posts","keywords": "python","wordcount":  52 ,
+        "url": "http:\/\/example.org\/posts\/python_import\/","datePublished": "2020-05-01T20:38:07+08:00","dateModified": "2020-05-01T20:38:07+08:00","author": {
                 "@type": "Person",
                 "name": "Author"
             },"description": ""
@@ -44,10 +68,21 @@ import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找�
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="My New Hugo Site">My New Hugo Site</a>
+            <a href="/" title="Ciao Ling&#39;s 部落格">Ciao Ling&#39;s 部落格</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -57,13 +92,29 @@ import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找�
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="My New Hugo Site">My New Hugo Site</a>
+                <a href="/" title="Ciao Ling&#39;s 部落格">Ciao Ling&#39;s 部落格</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -79,9 +130,12 @@ import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找�
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Python import method</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-05-10>2020-05-10</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 25 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Author</a></span>&nbsp;
+                    <span class="post-category">included in<a href="/categories/note/">
+                                <i class="far fa-folder fa-fw"></i>Note
+                            </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-05-01>2020-05-01</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;about 52 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;1 min&nbsp;</div>
         </div><div class="details toc" id="toc-static">
                 <div class="details-summary toc-title">
@@ -93,14 +147,18 @@ import sysimport ossys.path.append(os.path.abspath(&#39;../dir2&#39;))將找�
 <p>比如b.py想要引用a.py的function，沒辦法直接用relative import的方式，會產生
 <strong>“Attempted relative import beyond toplevel package” error</strong></p>
 <p>需要自行添加sibling的path 到sys.path，或者在最頂層執行程式</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading/small.min.svg"
-        data-src="/images/python_tree.png"
-        data-srcset="/images/python_tree.png, /images/python_tree.png 1.5x, /images/python_tree.png 2x"
-        data-sizes="auto"
-        alt="Image:"
-        title="Image:" /></p>
+<p>.<br>
+└─ moon<br>
+      ├── dir1<br>
+      │        ├── init.py<br>
+      │        └── moudle1<br>
+      │                ├── a.py<br>
+      │                └── init.py<br>
+      └── dir2<br>
+              ├── init.py<br>
+              └── moudle2<br>
+                       ├── b.py<br>
+                       └── init.py</p>
 <pre><code>import sys
 import os
 
@@ -126,7 +184,7 @@ sys.path
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>The article was updated on 2020-05-10</span>
+                <span>The article was updated on 2020-05-01</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -160,5 +218,5 @@ sys.path
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
