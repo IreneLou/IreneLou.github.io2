@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - Ciao Ling&#39;s 部落格</title>
+        <title>All Posts - Ciao Ling&#39;s 部落格  U・x・U</title>
         <link>http://example.org/posts/</link>
-        <description>All Posts | Ciao Ling&#39;s 部落格</description>
+        <description>All Posts | Ciao Ling&#39;s 部落格  U・x・U</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 01 May 2020 20:38:07 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Install ubuntu 18.04 網路設定</title>
     <link>http://example.org/posts/install_ubuntu18_04/</link>

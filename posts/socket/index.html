@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Use Socket to echo GWC - Ciao Ling&#39;s 部落格</title><meta name="Description" content=""><meta property="og:title" content="Use Socket to echo GWC" />
+        <title>Use Socket to echo GWC - Ciao Ling&#39;s 部落格  U・x・U</title><meta name="Description" content=""><meta property="og:title" content="Use Socket to echo GWC" />
 <meta property="og:description" content="wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應
   到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
  request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket." />
@@ -21,8 +21,8 @@
 <meta name="twitter:description" content="wireshark 剪封包訊息   GWC使用UDP GTPv2傳送封包，搜尋關鍵字時要找GWC的gtpu port打“udp.port==2123”或“gtpv2”，如果搜尋&quot;echo&quot;會導致搜尋範圍太大沒有反應
   到echo request的GTP訊息欄位，右鍵copy的選項可以選擇轉換類型，這次選hex，獲得
  request msg : 40010009000002000300010046 response msg: 400200090000020003000100b8    use Socket to send ECHO Request  import socketreq_message = &#39;40010009000002000300010046&#39;#初始設定gtpc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)# 如果是UDP一來一回request &amp; response不需要加bindgtpc_sock.bind((&#39;0.0.0.0&#39;, Port)) # &lt;- tuple style # socket msg type為bytegtpc_sock.sendto(bytes.fromhex(req_message), (IP, Port))# receive from 目標IP只會收一遍，1024為buffer sizetry:gwc_rsp, address = gtpc_sock.recvfrom(1024)# 要判斷有沒有time out，有沒有回傳訊息except socket."/>
-<meta name="application-name" content="Ciao Ling&#39;s 部落格">
-<meta name="apple-mobile-web-app-title" content="Ciao Ling&#39;s 部落格"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Ciao Ling&#39;s 部落格  U・x・U">
+<meta name="apple-mobile-web-app-title" content="Ciao Ling&#39;s 部落格  U・x・U"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/socket/" /><link rel="next" href="http://example.org/posts/python_import/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -45,7 +45,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Ciao Ling&#39;s 部落格">Ciao Ling&#39;s 部落格</a>
+            <a href="/" title="Ciao Ling&#39;s 部落格  U・x・U">Ciao Ling&#39;s 部落格  U・x・U</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -69,7 +69,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Ciao Ling&#39;s 部落格">Ciao Ling&#39;s 部落格</a>
+                <a href="/" title="Ciao Ling&#39;s 部落格  U・x・U">Ciao Ling&#39;s 部落格  U・x・U</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
